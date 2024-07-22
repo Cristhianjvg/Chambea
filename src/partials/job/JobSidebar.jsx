@@ -45,43 +45,43 @@ function JobSidebar() {
         <div className="grid md:grid-cols-2 xl:grid-cols-1 gap-6">
           {/* Group 1 */}
           <div>
-            <div className="text-sm text-slate-800 dark:text-slate-100 font-semibold mb-3">Job Types</div>
+            <div className="text-sm text-slate-800 dark:text-slate-100 font-semibold mb-3">Tipos de Trabajo</div>
             <ul className="space-y-2">
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" defaultChecked />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Programming</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Programación</span>
                 </label>
               </li>
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Design</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Diseño</span>
                 </label>
               </li>
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Management / Finance</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Finanzas</span>
                 </label>
               </li>
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Customer Support</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Atención al Cliente</span>
                 </label>
               </li>
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Sales / Marketing</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Ventas / Marketing</span>
                 </label>
               </li>
             </ul>
           </div>
           {/* Group 2 */}
           <div>
-            <div className="text-sm text-slate-800 dark:text-slate-100 font-semibold mb-3">Company Culture</div>
+            <div className="text-sm text-slate-800 dark:text-slate-100 font-semibold mb-3">Empresas con Buen Ambiente Laboral</div>
             <div className="flex items-center">
               <div className="form-switch">
                 <input
@@ -93,39 +93,39 @@ function JobSidebar() {
                 />
                 <label className="bg-slate-400 dark:bg-slate-700" htmlFor="company-toggle">
                   <span className="bg-white shadow-sm" aria-hidden="true"></span>
-                  <span className="sr-only">Company Culture</span>
+                  <span className="sr-only">Empresas con Buen Ambiente Laboral</span>
                 </label>
               </div>
               <div className="text-sm text-slate-400 dark:text-slate-500 italic ml-2">{companySetting ? 'On' : 'Off'}</div>
             </div>
-            <div className="text-sm dark:text-slate-500 italic mt-3">Only show companies that are creating a positive culture</div>
+            <div className="text-sm dark:text-slate-500 italic mt-3">Mostrar únicamente empresas con un ambiente positivo</div>
           </div>
           {/* Group 3 */}
           <div>
-            <div className="text-sm text-slate-800 dark:text-slate-100 font-semibold mb-3">Salary Range</div>
+            <div className="text-sm text-slate-800 dark:text-slate-100 font-semibold mb-3">Rango de Salario</div>
             <ul className="space-y-2">
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" defaultChecked />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">$20K - $50K</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">$20 - $50</span>
                 </label>
               </li>
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">$50K - $100K</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">$50 - $100</span>
                 </label>
               </li>
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">&gt; $100K</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">&gt; $100</span>
                 </label>
               </li>
               <li>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox" />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Drawing / Painting</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Dibujo / Pintura</span>
                 </label>
               </li>
             </ul>

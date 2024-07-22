@@ -152,7 +152,7 @@ function JobListing() {
 
               {/* Left: Title */}
               <div className="mb-4 sm:mb-0">
-                <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">Search For Jobs ✨</h1>
+                <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">Descubre Ofertas de Trabajo ✨</h1>
               </div>
 
               {/* Post a job button */}
@@ -160,7 +160,7 @@ function JobListing() {
                 <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                   <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                 </svg>
-                <span className="hidden xs:block ml-2">Post A Job</span>
+                <span className="hidden xs:block ml-2">Postula a un Trabajo</span>
               </button>
 
             </div>
@@ -177,7 +177,7 @@ function JobListing() {
                 {/* Search form */}
                 <div className="mb-5">
                   <form className="relative">
-                    <label htmlFor="job-search" className="sr-only">Search</label>
+                    <label htmlFor="job-search" className="sr-only">Buscar</label>
                     <input id="job-search" className="form-input w-full pl-9 bg-white dark:bg-slate-800" type="search" placeholder="Search job title or keyword…" />
                     <button className="absolute inset-0 right-auto group" type="submit" aria-label="Search">
                       <svg className="w-4 h-4 shrink-0 fill-current text-slate-400 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-400 ml-3 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -190,10 +190,10 @@ function JobListing() {
 
                 {/* Jobs header */}
                 <div className="flex justify-between items-center mb-4">
-                  <div className="text-sm text-slate-500 dark:text-slate-400 italic">Showing 289 Jobs</div>
+                  <div className="text-sm text-slate-500 dark:text-slate-400 italic">Mostrando 289 Trabajos</div>
                   {/* Sort */}
                   <div className="text-sm">
-                    <span>Sort by </span>
+                    <span>Ordenar por </span>
                     <DropdownSort align="right" />
                   </div>
                 </div>
