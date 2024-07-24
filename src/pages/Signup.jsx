@@ -1,5 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate  } from 'react-router-dom';
+
+import { auth, db } from '../firebaseConfig'; // Importar auth y db desde la configuración de Firebase
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 
 import AuthImage from '../images/auth-image.jpg';
 import AuthDecoration from '../images/auth-decoration.png';
@@ -40,28 +44,27 @@ function Signup() {
             </div>
 
             <div className="max-w-sm mx-auto w-full px-4 py-8">
-              <h1 className="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">Create your Account ✨</h1>
+              <h1 className="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">Crearse una Cuenta ✨</h1>
               {/* Form */}
               <form>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium mb-1" htmlFor="email">Email Address <span className="text-rose-500">*</span></label>
+                    <label className="block text-sm font-medium mb-1" htmlFor="email">Correo Electrónico<span className="text-rose-500">*</span></label>
                     <input id="email" className="form-input w-full" type="email" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1" htmlFor="name">Full Name <span className="text-rose-500">*</span></label>
+                    <label className="block text-sm font-medium mb-1" htmlFor="name">Nombre Completo<span className="text-rose-500">*</span></label>
                     <input id="name" className="form-input w-full" type="text" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1" htmlFor="role">Your Role <span className="text-rose-500">*</span></label>
+                    <label className="block text-sm font-medium mb-1" htmlFor="role">Rol <span className="text-rose-500">*</span></label>
                     <select id="role" className="form-select w-full">
-                      <option>Designer</option>
-                      <option>Developer</option>
-                      <option>Accountant</option>
+                      <option>Empleado</option>
+                      <option>Empleador</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1" htmlFor="password">Password</label>
+                    <label className="block text-sm font-medium mb-1" htmlFor="password">Contraseña</label>
                     <input id="password" className="form-input w-full" type="password" autoComplete="on" />
                   </div>
                 </div>
@@ -69,16 +72,16 @@ function Signup() {
                   <div className="mr-1">
                     <label className="flex items-center">
                       <input type="checkbox" className="form-checkbox" />
-                      <span className="text-sm ml-2">Email me about product news.</span>
+                      <span className="text-sm ml-2">Envierme notificaciones de nuevos productos a mi correo.</span>
                     </label>
                   </div>
-                  <Link className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3 whitespace-nowrap" to="/">Sign Up</Link>
+                  <Link className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3 whitespace-nowrap" to="/">Registrarse</Link>
                 </div>
               </form>
               {/* Footer */}
               <div className="pt-5 mt-6 border-t border-slate-200 dark:border-slate-700">
                 <div className="text-sm">
-                  Have an account? <Link className="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="/signin">Sign In</Link>
+                  ¿Ya tienes una cuenta? <Link className="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="/signin">Sign In</Link>
                 </div>
               </div>
             </div>
