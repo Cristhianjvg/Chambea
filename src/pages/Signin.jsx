@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
-import { auth } from '../firebaseConfig'; // Asegúrate de importar auth desde tu configuración de Firebase
+import { auth } from '../firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import AuthImage from '../images/auth-image.jpg';
 import AuthDecoration from '../images/auth-decoration.png';
 
-function Signin() {
+const Signin = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleSignin = async (e) => {
+      e.preventDefault();
+      setError('');
+      try {
+          await signInWithEmailAndPassword(auth, email, password);
+          navigate('/job/job-listing'); 
+      } catch (err) {
+          setError('Invalid email or password');
+      }
+  };
+
   return (
     <main className="bg-white dark:bg-slate-900">
 
@@ -44,32 +59,31 @@ function Signin() {
 
             <div className="max-w-sm mx-auto w-full px-4 py-8">
               <h1 className="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">Bienvenido a Chambea! ✨</h1>
-
-              {/*{error && <p className="text-red-500">{error}</p>}*/}
+              {error && <p className="text-red-500">{error}</p>}
               {/* Form */}
-              <form>
+              <form onSubmit={handleSignin}>
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-1" htmlFor="email">Correo Electrónico</label>
                     <input
-                               // onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value)}
                                 id="email"
                                 className="form-input w-full"
                                 type="email"
                                 placeholder="Correo Electrónico"
-                                //value={email}
+                                value={email}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-1" htmlFor="password">Contraseña</label>
                     <input
-                                //onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => setPassword(e.target.value)}
                                 id="password"
                                 className="form-input w-full"
                                 type="password"
                                 placeholder="Constraseña"
                                 autoComplete="on"
-                                //value={password}
+                                value={password}
                             />
                   </div>
                 </div>
@@ -77,7 +91,7 @@ function Signin() {
                   <div className="mr-1">
                     <Link className="text-sm underline hover:no-underline" to="/reset-password">¿Olvidaste la Contraseña?</Link>
                   </div>
-                  <Link className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3" to="/">Iniciar Sesión</Link>
+                  <button type="submit" className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3">Iniciar Sesión</button>
                 </div>
               </form>
               {/* Footer */}
@@ -92,7 +106,7 @@ function Signin() {
                       <path d="M10.28 1.28L3.989 7.575 1.695 5.28A1 1 0 00.28 6.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 1.28z" />
                     </svg>
                     <span className="text-sm">
-                      Estamos trabajando constantemente en el desarrollo de nuevas funcionalidades para una mejor experiencia!
+                      Estamos trabajando constantemente en el desarrollo de nuevas funcionalidades para una mejor experiencia!.
                     </span>
                   </div>
                 </div>

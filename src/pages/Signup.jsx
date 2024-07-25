@@ -72,7 +72,7 @@ function Signup() {
                   <div className="mr-1">
                     <label className="flex items-center">
                       <input type="checkbox" className="form-checkbox" />
-                      <span className="text-sm ml-2">Envierme notificaciones de nuevos productos a mi correo.</span>
+                      <span className="text-sm ml-2">Enviarme notificaciones de nuevos productos a mi correo.</span>
                     </label>
                   </div>
                   <Link className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3 whitespace-nowrap" to="/">Registrarse</Link>
