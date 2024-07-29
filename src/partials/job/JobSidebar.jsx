@@ -122,34 +122,7 @@ function JobSidebar() {
                   <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">&gt; $100</span>
                 </label>
               </li>
-              <li>
-                <label className="flex items-center">
-                  <input type="checkbox" className="form-checkbox" />
-                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium ml-2">Dibujo / Pintura</span>
-                </label>
-              </li>
             </ul>
-          </div>
-          {/* Group 4 */}
-          <div>
-            <div className="text-sm text-slate-800 dark:text-slate-100 font-semibold mb-3">Immigration</div>
-            <div className="flex items-center">
-              <div className="form-switch">
-                <input
-                  type="checkbox"
-                  id="immigration-toggle"
-                  className="sr-only"
-                  checked={immigrationSetting}
-                  onChange={() => setImmigrationSetting(!immigrationSetting)}
-                />
-                <label className="bg-slate-400 dark:bg-slate-700" htmlFor="immigration-toggle">
-                  <span className="bg-white shadow-sm" aria-hidden="true"></span>
-                  <span className="sr-only">Immigration</span>
-                </label>
-              </div>
-              <div className="text-sm text-slate-400 dark:text-slate-500 italic ml-2">{immigrationSetting ? 'On' : 'Off'}</div>
-            </div>
-            <div className="text-sm dark:text-slate-500 italic mt-3">Only show companies that can sponsor a visa</div>
           </div>
         </div>
       </div>

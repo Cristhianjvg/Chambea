@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
-import {
-  Routes,
-  Route,
-  useLocation
+import {BrowserRouter as 
+  Router, 
+  Routes, 
+  Route  
 } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import './css/style.css';
 
 import './charts/ChartjsConfig';
+
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Import pages
 import UsersTabs from './pages/community/UsersTabs';
@@ -53,27 +56,175 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<UsersTabs />} />
-        <Route path="/community/users-tabs" element={<UsersTabs />} />
-        <Route path="/community/users-tiles" element={<UsersTiles />} />
-        <Route path="/community/profile" element={<Profile />} />
-        <Route path="/community/feed" element={<Feed />} />
-        <Route path="/community/forum" element={<Forum />} />
-        <Route path="/community/forum-post" element={<ForumPost />} />
-        <Route path="/community/meetups" element={<Meetups />} />
-        <Route path="/community/meetups-post" element={<MeetupsPost />} />
-        <Route path="/job/job-listing" element={<JobListing />} />
-        <Route path="/job/job-post" element={<JobPost />} />
-        <Route path="/job/company-profile" element={<CompanyProfile />} />
-        <Route path="/messages" element={<Messages />} />
-        <Route path="/inbox" element={<Inbox />} />
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/settings/account" element={<Account />} />
-        <Route path="/settings/notifications" element={<Notifications />} />
-        <Route path="/settings/apps" element={<Apps />} />
-        <Route path="/settings/plans" element={<Plans />} />
-        <Route path="/settings/billing" element={<Billing />} />
-        <Route path="/settings/feedback" element={<Feedback />} />
+        <Route 
+          path="/"
+          element={
+            <ProtectedRoute>
+              <UsersTabs />
+            </ProtectedRoute>
+            }
+        />
+        <Route 
+          path="/community/users-tabs" 
+          element={
+            <ProtectedRoute>
+              <UsersTabs />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/community/users-tiles" 
+          element={
+            <ProtectedRoute>
+              <UsersTiles />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/community/profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/community/feed" 
+          element={
+            <ProtectedRoute>
+              <Feed />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/community/forum" 
+          element={
+            <ProtectedRoute>
+              <Forum />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/community/forum-post" 
+          element={
+            <ProtectedRoute>
+              <ForumPost />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/community/meetups" 
+          element={
+            <ProtectedRoute>
+              <Meetups />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/community/meetups-post" 
+          element={
+            <ProtectedRoute>
+              <MeetupsPost />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/job/job-listing" 
+          element={
+            <ProtectedRoute>
+              <JobListing />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/job/job-post" 
+          element={
+            <ProtectedRoute>
+              <JobPost />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/job/company-profile" 
+          element={
+            <ProtectedRoute>
+              <CompanyProfile />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/messages" 
+          element={
+            <ProtectedRoute>
+              <Messages />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/inbox" 
+          element={
+            <ProtectedRoute>
+              <Inbox />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/calendar" 
+          element={
+            <ProtectedRoute>
+              <Calendar />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings/account" 
+          element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings/notifications" 
+          element={
+            <ProtectedRoute>
+              <Notifications />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings/apps" 
+          element={
+            <ProtectedRoute>
+              <Apps />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings/plans" 
+          element={
+            <ProtectedRoute>
+              <Plans />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings/billing" 
+          element={
+            <ProtectedRoute>
+              <Billing />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings/feedback" 
+          element={
+            <ProtectedRoute>
+              <Feedback />
+            </ProtectedRoute>
+          } 
+        />
+        
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/reset-password" element={<ResetPassword />} />

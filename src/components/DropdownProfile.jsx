@@ -1,12 +1,27 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Transition from '../utils/Transition';
+import { auth } from '../firebaseConfig'; // Asegúrate de importar auth desde tu configuración de Firebase
+import { signOut } from 'firebase/auth';
 
 import UserAvatar from '../images/user-avatar-32.png';
 
 function DropdownProfile({
   align
 }) {
+
+  // Revisión del Cierre de Sesión
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      setDropdownOpen(!dropdownOpen);
+      navigate('/signin');
+    } catch (error) {
+      console.error('Error signing out: ', error);
+    }
+  };
+
+  const navigate = useNavigate();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -75,20 +90,20 @@ function DropdownProfile({
             <li>
               <Link
                 className="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
-                to="/settings"
+                to="/settings/account"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
-                Settings
+                Configuración
               </Link>
             </li>
             <li>
-              <Link
+              <button
+                type="submit"
                 className="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
-                to="/signin"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onClick={handleSignOut}
               >
-                Sign Out
-              </Link>
+                Cerrar Sesión
+              </button>
             </li>
           </ul>
         </div>

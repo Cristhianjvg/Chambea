@@ -81,7 +81,7 @@ function Signup() {
               {/* Footer */}
               <div className="pt-5 mt-6 border-t border-slate-200 dark:border-slate-700">
                 <div className="text-sm">
-                  ¿Ya tienes una cuenta? <Link className="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="/signin">Sign In</Link>
+                  ¿Ya tienes una cuenta? <Link className="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="/signin">Iniciar Sesión</Link>
                 </div>
               </div>
             </div>
