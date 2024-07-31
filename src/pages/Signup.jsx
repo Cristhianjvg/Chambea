@@ -9,6 +9,25 @@ import AuthImage from '../images/auth-image.jpg';
 import AuthDecoration from '../images/auth-decoration.png';
 
 function Signup() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
+
+  const handleSignUp = async (e) => {
+      e.preventDefault();
+      setError('');
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        setSuccess('Signup successful!');
+        navigate('/onboarding-01'); // Redirigir al usuario después de registrarse
+      } catch (err) {
+        console.error('Error during sign up:', error);
+        setError(`Error: ${error.message}`);
+      }
+  };
   return (
     <main className="bg-white dark:bg-slate-900">
 
@@ -45,37 +64,39 @@ function Signup() {
 
             <div className="max-w-sm mx-auto w-full px-4 py-8">
               <h1 className="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">Crearse una Cuenta ✨</h1>
+              {error && <p className="text-red-500">{error}</p>}
               {/* Form */}
-              <form>
+              <form onSubmit={handleSignUp}>
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-1" htmlFor="email">Correo Electrónico<span className="text-rose-500">*</span></label>
-                    <input id="email" className="form-input w-full" type="email" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1" htmlFor="name">Nombre Completo<span className="text-rose-500">*</span></label>
-                    <input id="name" className="form-input w-full" type="text" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1" htmlFor="role">Rol <span className="text-rose-500">*</span></label>
-                    <select id="role" className="form-select w-full">
-                      <option>Empleado</option>
-                      <option>Empleador</option>
-                    </select>
+                    <input 
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Correo Electrónico"
+                      autoComplete="email"
+                      value={email}
+                      id="email" 
+                      className="form-input w-full" 
+                      type="email" 
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-1" htmlFor="password">Contraseña</label>
-                    <input id="password" className="form-input w-full" type="password" autoComplete="on" />
+                    <input 
+                      onChange={(e) => setPassword(e.target.value)}
+                      id="password"
+                      placeholder="Contraseña"
+                      className="form-input w-full" 
+                      type="password" 
+                      autoComplete="on"
+                      value={password}
+                    />
                   </div>
                 </div>
                 <div className="flex items-center justify-between mt-6">
                   <div className="mr-1">
-                    <label className="flex items-center">
-                      <input type="checkbox" className="form-checkbox" />
-                      <span className="text-sm ml-2">Enviarme notificaciones de nuevos productos a mi correo.</span>
-                    </label>
                   </div>
-                  <Link className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3 whitespace-nowrap" to="/">Registrarse</Link>
+                  <button type="submit" className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3 whitespace-nowrap">Registrarse</button>
                 </div>
               </form>
               {/* Footer */}

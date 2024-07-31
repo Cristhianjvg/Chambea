@@ -19,7 +19,7 @@ const Signin = () => {
           await signInWithEmailAndPassword(auth, email, password);
           navigate('/job/job-listing'); 
       } catch (err) {
-          setError('Invalid email or password');
+          setError('Correo Electrónico o Contraseña incorrecta');
       }
   };
 
